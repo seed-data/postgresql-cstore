@@ -21,4 +21,4 @@ run:
 	docker-compose run db bash
 
 psql:
-	docker-compose run db psql -h db -p 5432 -U postgres
+	psql -h localhost -p 5432 -U postgres
