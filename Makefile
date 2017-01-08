@@ -7,7 +7,7 @@ clean:
 build: clean
 	docker build -t postgresql-cstore_fdw .
 
-up: build
+up:
 	mkdir -p .data .tmp
 	docker-compose up
 
