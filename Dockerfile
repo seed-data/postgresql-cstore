@@ -2,7 +2,7 @@ FROM postgres:9.6.1
 
 # Install cstore_fdw
 RUN apt-get update \
-    && apt-get install -y git gcc make postgresql-server-dev-9.6 libpq-dev python-psycopg2 protobuf-c-compiler libprotobuf-c0-dev \
+    && apt-get install -y git gcc make postgresql-server-dev-9.6 libpq-dev python-psycopg2 protobuf-c-compiler libprotobuf-c0-dev apt-utils \
     && git clone https://github.com/citusdata/cstore_fdw /opt/cstore \
     && cd /opt/cstore && make && make install
 

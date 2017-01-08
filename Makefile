@@ -1,23 +1,24 @@
 .PHONY: clean build up down run exec
 
 clean:
+	docker-compose rm -f || true
 	docker rmi -f postgresql-cstore_fdw:latest || true
 
 build: clean
-	docker build -t 'postgresql-cstore_fdw:latest' .
+	docker build -t postgresql-cstore_fdw .
 
 up: build
 	mkdir -p .data .tmp
-	docker-compose -p postgresql-cstore up
+	docker-compose up
 
 down:
-	docker-compose -p postgresql-cstoredown
+	docker-compose down
 
 exec:
-	docker-compose -p postgresql-cstore exec db bash
+	docker-compose exec db bash
 
 run:
-	docker-compose -p postgresql-cstore run db bash
+	docker-compose run db bash
 
 psql:
-	docker-compose -p postgresql-cstore run db psql -h db -p 5432 -U postgres
+	docker-compose run db psql -h db -p 5432 -U postgres

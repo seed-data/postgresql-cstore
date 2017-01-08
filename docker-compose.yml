@@ -2,7 +2,6 @@ version: '2'
 
 services:
   db:
-    container_name: 'postgresql_cstore'
     image: 'postgresql-cstore_fdw:latest'
     ports:
       - '5432:5432'
